@@ -8,18 +8,27 @@ namespace Dagboksappen
 {
     internal class DiaryTools
     {
-        /*
-    class DiaryService
-    List<DiaryEntry> entries
-    Dictionary<DateTime, DiaryEntry> entryDict
 
-    AddEntry(DiaryEntry entry)
-    RemoveEntry(DateTime date)
-    UpdateEntry(DateTime date, string newText)
-    GetEntry(DateTime date) -> DiaryEntry
-    GetAllEntries() -> List<DiaryEntry>
-    LoadEntries(List<DiaryEntry> loadedEntries)
-         * 
-         */
+        Dictionary<DateOnly, string> myDiary = new Dictionary<DateOnly, string>();
+        DiaryEntry diaryEntry = new DiaryEntry();
+
+
+        public void AddNote()
+        {
+            DateOnly date = DiaryEntry.EnterDate();
+
+            if (myDiary.ContainsKey(date))
+            {
+                Console.WriteLine("Det finns redan en anteckning för detta datum");
+                return;
+            }
+
+            Console.WriteLine("Skriv din anteckning:");
+            string text = DiaryEntry.EnterText();
+            myDiary[date] = text;
+            Console.WriteLine("Anteckningen har lagts till.");
+        }
+
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Dagboksappen;
+using System.ComponentModel.DataAnnotations;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -9,9 +10,7 @@ namespace Dagboksappen
 
         static void Main(string[] args)
         {
-
-            Dictionary<DateOnly, string> myDiary = new Dictionary<DateOnly, string>();
-            DiaryEntry diaryEntry = new DiaryEntry();
+            DiaryTools diaryTools = new DiaryTools();
 
             Console.WriteLine("Välkommen till din dagbok\n");
 
@@ -19,19 +18,11 @@ namespace Dagboksappen
             while (true)
             {
 
-                Console.WriteLine("Dagboksappen!");
-                Console.WriteLine("1. Skriv ny anteckning");
-                Console.WriteLine("2. Lista alla anteckningar");
-                Console.WriteLine("3. Uppdatera anteckningar");
-                Console.WriteLine("4. Ta bort Anteckningar");
-                Console.WriteLine("5. Spara till fil.");
-                Console.WriteLine("6. Läs från fil.");
-                Console.WriteLine("7. Avsluta");
-                Console.Write("Välj ett alternativ (1-7): ");
+                ShowMenu();
 
                 int choice = Validering.GetInt();
 
-                if (choice == 7)
+                if (choice == 8)
                 {
                     break;
                 }
@@ -39,21 +30,25 @@ namespace Dagboksappen
                 switch (choice)
                 {
                     case 1:
-                        Console.WriteLine("Skriv ny anteckning");
+                        diaryTools.AddNote();
                         break;
+
                     case 2:
                         Console.WriteLine("Lista alla anteckningar");
                         break;
                     case 3:
-                        Console.WriteLine("Uppdatera anteckningar");
+                        Console.WriteLine("Sök anteckningar på datum");
                         break;
                     case 4:
-                        Console.WriteLine("Ta bort Anteckningar");
+                        Console.WriteLine("Uppdatera anteckningar");
                         break;
                     case 5:
-                        Console.WriteLine("Spara till fil.");
+                        Console.WriteLine("Ta bort Anteckningar");
                         break;
                     case 6:
+                        Console.WriteLine("Spara till fil.");
+                        break;
+                    case 7:
                         Console.WriteLine("Läs från fil.");
                         break;
                     default:
@@ -64,12 +59,31 @@ namespace Dagboksappen
 
             }
 
+        }
 
+        public static void ShowMenu()
+        {
+            Console.WriteLine("Välj ett alternativ:");
+            Console.WriteLine("1. Skriv ny anteckning");
+            Console.WriteLine("2. Lista alla anteckningar");
+            Console.WriteLine("3. Sök anteckningar på datum");
+            Console.WriteLine("4. Uppdatera anteckning");
+            Console.WriteLine("5. Ta bort anteckning");
+            Console.WriteLine("6. Spara till fil");
+            Console.WriteLine("7. Läs från fil");
+            Console.WriteLine("8. Avsluta");
 
         }
 
-      
-
     }
 
+
 }
+
+       
+
+
+
+         
+
+            
