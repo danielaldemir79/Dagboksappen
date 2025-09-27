@@ -9,18 +9,19 @@ namespace Dagboksappen
     public class DiaryEntry
 
     {
-        public static DateOnly EnterDate()
+        public static DateTime EnterDate()
         {
-            DateOnly datum;
+            DateTime date;
             string input;
             Console.WriteLine("Ange datum (ÅÅÅÅ-MM-DD):");
 
             while (true)
             {
                 input = Console.ReadLine();
-                if (DateOnly.TryParseExact(input, "yyyy-MM-dd", out datum))
+                if (DateTime.TryParseExact(input, "yyyy-mm-dd", null, 
+                    System.Globalization.DateTimeStyles.None,  out date))
                 {
-                    return datum;
+                    return date;
                 }
                 Console.WriteLine("Ogiltigt datum, försök igen (ÅÅÅÅ-MM-DD):");
             }
@@ -39,5 +40,7 @@ namespace Dagboksappen
 
             return text;
         }
+
+
     }
 }
