@@ -24,7 +24,7 @@ namespace Dagboksappen
                 {
                     File.WriteAllText(jsonFile, string.Empty);
                     Console.Clear();
-                    Design.Red("\n Inga anteckningar att spara\n\n");
+                    Design.Red("\n Filen sparades med 0 anteckningar. Filen är nu tom.\n\n");
                     return;
                 }
 
@@ -40,6 +40,7 @@ namespace Dagboksappen
             }
             catch (Exception ex)
             {
+                File.AppendAllText("error.log", $"{DateTime.Now}: {ex}\n");
                 Console.Clear();
                 Design.Red($"\n Ett fel uppstod vid sparning till filen: {ex.Message}\n"); 
 
@@ -75,8 +76,9 @@ namespace Dagboksappen
             }
             catch (Exception ex)
             {
+                File.AppendAllText("error.log", $"{DateTime.Now}: {ex}\n");
                 Console.Clear();
-
+               
                 Design.Red($"\n Ett fel uppstod vid inläsning av filen: {ex.Message}\n");
                 
             }

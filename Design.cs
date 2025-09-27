@@ -47,7 +47,7 @@ namespace Dagboksappen
 
         public static void ClearScreen()
         {
-            Design.Yellow("\n Tryck på valfri tangent för att fortsätta...");
+            Design.Green("\n Tryck på valfri tangent för att fortsätta...");
             Console.ReadKey();
             Console.Clear();
         }

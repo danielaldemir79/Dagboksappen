@@ -14,23 +14,10 @@ namespace Dagboksappen
 
             while (!int.TryParse(Console.ReadLine(), out helTal))
             {
-                Console.WriteLine("Ogiltigt val, försök igen:");
+               Design.Red(" Ogiltigt val, försök igen:\n");
             }
             Console.WriteLine();
             return helTal;
-
-        }
-
-        public static double GetDouble()
-        {
-            double tal;
-
-            while (!double.TryParse(Console.ReadLine(), out tal))
-            {
-                Console.WriteLine("Ogiltigt val, försök igen:");
-            }
-
-            return tal;
 
         }
 
