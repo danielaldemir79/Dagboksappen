@@ -35,7 +35,7 @@ namespace Dagboksappen
                         break;
 
                     case 2:
-                        DiaryTools.ListNotes();
+                        DiaryTools.RemoveNote();
                         break;
                     case 3:
                         DiaryTools.SearchDate();
@@ -44,7 +44,7 @@ namespace Dagboksappen
                         DiaryTools.UpdateNote();
                         break;
                     case 5:
-                        DiaryTools.RemoveNote();
+                        DiaryTools.ListNotes();
                         break;
                     case 6:
                         FileManager.SaveToFile();
@@ -65,11 +65,11 @@ namespace Dagboksappen
         public static void ShowMenu()
         {
             Console.WriteLine("Välj ett alternativ:");
-            Console.WriteLine("1. Skriv ny anteckning");
-            Console.WriteLine("2. Lista alla anteckningar");
+            Console.WriteLine("1. Lägg till anteckning");
+            Console.WriteLine("2. Radera anteckning");
             Console.WriteLine("3. Sök anteckningar på datum");
             Console.WriteLine("4. Uppdatera anteckning");
-            Console.WriteLine("5. Ta bort anteckning");
+            Console.WriteLine("5. Lista alla anteckningar");
             Console.WriteLine("6. Spara till fil");
             Console.WriteLine("7. Läs från fil");
             Console.WriteLine("8. Avsluta");
