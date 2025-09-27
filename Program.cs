@@ -5,12 +5,13 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Dagboksappen
 {
+    
     internal class Program
     {
 
         static void Main(string[] args)
-        {
-            DiaryTools diaryTools = new DiaryTools();
+        {          
+            FileManager.LoadFromFile();
 
             Console.WriteLine("Välkommen till din dagbok\n");
 
@@ -30,26 +31,26 @@ namespace Dagboksappen
                 switch (choice)
                 {
                     case 1:
-                        diaryTools.AddNote();
+                        DiaryTools.AddNote();
                         break;
 
                     case 2:
-                        diaryTools.ListNotes();
+                        DiaryTools.ListNotes();
                         break;
                     case 3:
-                        diaryTools.SearchDate();
+                        DiaryTools.SearchDate();
                         break;
                     case 4:
-                        diaryTools.UpdateNote();
+                        DiaryTools.UpdateNote();
                         break;
                     case 5:
-                        diaryTools.RemoveNote();
+                        DiaryTools.RemoveNote();
                         break;
                     case 6:
-                        Console.WriteLine("Spara till fil.");
+                        FileManager.SaveToFile();
                         break;
                     case 7:
-                        Console.WriteLine("Läs från fil.");
+                        FileManager.LoadFromFile();
                         break;
                     default:
                         Console.WriteLine("Ogiltigt val, försök igen.");

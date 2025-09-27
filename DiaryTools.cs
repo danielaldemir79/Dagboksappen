@@ -9,11 +9,11 @@ namespace Dagboksappen
     internal class DiaryTools
     {
 
-        Dictionary<DateTime, string> myDiary = new Dictionary<DateTime, string>();
-        DiaryEntry diaryEntry = new DiaryEntry();
+        public static Dictionary<DateTime, string> myDiary = new Dictionary<DateTime, string>();
+        public DiaryEntry diaryEntry = new DiaryEntry();
 
 
-        public void AddNote()
+        public static void AddNote()
         {
             DateTime date = DiaryEntry.EnterDate();
 
@@ -30,7 +30,7 @@ namespace Dagboksappen
         }
 
         
-        public void RemoveNote()
+        public static void RemoveNote()
         {
 
             DateTime date = DiaryEntry.EnterDate();
@@ -42,12 +42,13 @@ namespace Dagboksappen
             }
            
             myDiary.Remove(date);
+
             Console.WriteLine("Anteckningen har tagits bort.");
 
         }
 
        
-        public void ListNotes()
+        public static void ListNotes()
         {
             if (myDiary.Count == 0)
             {
@@ -61,7 +62,7 @@ namespace Dagboksappen
             }
         }
 
-        public void UpdateNote()
+        public static void UpdateNote()
         {
             DateTime date = DiaryEntry.EnterDate();
             if (!myDiary.ContainsKey(date))
@@ -77,7 +78,7 @@ namespace Dagboksappen
             Console.WriteLine("Anteckningen har uppdaterats.");
         }
 
-        public void SearchDate()
+        public static void SearchDate()
         {
             DateTime date = DiaryEntry.EnterDate();
 
