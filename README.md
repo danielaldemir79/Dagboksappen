@@ -1,6 +1,20 @@
 # Dagboksappen
+En enkel och robust konsolapplikation för att skriva, spara, söka, uppdatera och ta bort dagboksanteckningar. Programmet är utvecklat i C# och .NET 8 och använder en Dictionary för effektiv hantering av anteckningar.
 
-En enkel konsolapplikation för att skriva, spara och läsa dagboksanteckningar.
+---
+
+## Funktioner
+
+- Lägg till ny anteckning (med datum och text)
+- Ta bort anteckning
+- Lista alla anteckningar (sorterade efter datum)
+- Sök anteckning på datum
+- Uppdatera befintlig anteckning
+- Spara och ladda anteckningar till/från fil (JSON-format)
+- Felhantering och loggning till `error.log`
+- Tydlig inputvalidering och användarvänligt gränssnitt
+
+---
 
 ## Så kör du appen
 1. Klona repot och öppna lösningen i Visual Studio 2022.
