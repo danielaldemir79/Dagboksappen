@@ -23,11 +23,11 @@ En enkel och robust konsolapplikation för att skriva, spara, söka, uppdatera o
 ## Exempel på I/O
 1.	Lägg till anteckning
 2.	Ta bort anteckning ...
-   
+----------------------------   
 3.	Ditt val: 1
 4.	Ange datum (ÅÅÅÅ-MM-DD): 2025-09-28
 5.	Skriv din anteckning: Idag lärde jag mig om Dictionary i C#.
-
+----------------------------
 6.	Anteckningen har lagts till.
 
 ## Reflektion
