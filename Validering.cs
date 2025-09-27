@@ -16,7 +16,7 @@ namespace Dagboksappen
             {
                 Console.WriteLine("Ogiltigt val, försök igen:");
             }
-            
+            Console.WriteLine();
             return helTal;
 
         }

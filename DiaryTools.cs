@@ -15,51 +15,81 @@ namespace Dagboksappen
 
         public static void AddNote()
         {
+            Console.Clear();
+            Design.Green("╔══════════════════════════════╗\n");
+            Design.Green("║                              ║\n");
+            Design.Green("║     LÄGG TILL ANTECKNING     ║\n");
+            Design.Green("║                              ║\n");
+            Design.Green("╚══════════════════════════════╝\n\n");
+
             DateTime date = DiaryEntry.EnterDate();
 
             if (myDiary.ContainsKey(date))
             {
-                Console.WriteLine("Det finns redan en anteckning för detta datum");
+                Console.Clear();
+                Design.Red("\n Det finns redan en anteckning för detta datum\n\n");
                 return;
             }
 
-            Console.WriteLine("Skriv din anteckning:");
+            Design.Yellow(" Skriv din anteckning: ");
             string text = DiaryEntry.EnterText();
             myDiary[date] = text;
-            Console.WriteLine("Anteckningen har lagts till.");
+            Console.Clear();
+            Design.Green(" Anteckningen har lagts till.\n\n");
         }
 
         
         public static void RemoveNote()
         {
 
+                        Console.Clear();
+            Design.Red("╔══════════════════════════════╗\n");
+            Design.Red("║                              ║\n");
+            Design.Red("║      TA BORT ANTECKNING      ║\n");
+            Design.Red("║                              ║\n");
+            Design.Red("╚══════════════════════════════╝\n\n");
+
+            Design.Red(" Vilken anteckning vill du ta bort?\n");
             DateTime date = DiaryEntry.EnterDate();
            
-            if(!myDiary.ContainsKey(date))
+
+            if (!myDiary.ContainsKey(date))
             {
-                Console.WriteLine("Det finns ingen anteckning för detta datum");
+                Console.Clear();
+                Design.Red("\n Det finns ingen anteckning för detta datum\n\n");
                 return;
             }
            
             myDiary.Remove(date);
 
-            Console.WriteLine("Anteckningen har tagits bort.");
+            Console.Clear();
+            Design.Green("Anteckningen har tagits bort.\n");
 
         }
 
        
         public static void ListNotes()
         {
+            Console.Clear();
+
+            Design.Yellow("╔═══════════════════════════════╗\n");
+            Design.Yellow("║                               ║\n");
+            Design.Yellow("║   DIN LISTA AV ANTECKNINGAR   ║\n");
+            Design.Yellow("║                               ║\n");
+            Design.Yellow("╚═══════════════════════════════╝\n\n");
+
             if (myDiary.Count == 0)
             {
-                Console.WriteLine("Inga anteckningar att visa.");
+                Console.WriteLine(" Inga anteckningar att visa.");
                 return;
             }
             
             foreach (var entry in myDiary)
             {
-                Console.WriteLine($"{entry.Key:yyyy-MM-dd}: {entry.Value}");
+                Console.WriteLine($" {entry.Key:yyyy-MM-dd}: {entry.Value}");
             }
+
+            Design.ClearScreen();
         }
 
         public static void UpdateNote()

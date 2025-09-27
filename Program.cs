@@ -1,5 +1,6 @@
 ﻿using Dagboksappen;
 using System.ComponentModel.DataAnnotations;
+using System.Net.WebSockets;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -13,15 +14,14 @@ namespace Dagboksappen
         {          
             FileManager.LoadFromFile();
 
-            Console.WriteLine("Välkommen till din dagbok\n");
-
-
             while (true)
             {
 
                 ShowMenu();
 
+                Design.Yellow(" Ditt val: ");
                 int choice = Validering.GetInt();
+
 
                 if (choice == 8)
                 {
@@ -47,13 +47,14 @@ namespace Dagboksappen
                         DiaryTools.ListNotes();
                         break;
                     case 6:
-                        FileManager.SaveToFile();
-                        break;
-                    case 7:
                         FileManager.LoadFromFile();
                         break;
+                    case 7:
+                        FileManager.SaveToFile();
+                        break;
                     default:
-                        Console.WriteLine("Ogiltigt val, försök igen.");
+                        Console.Clear();
+                        Design.Red("\nOgiltigt val, försök igen.\n\n");
                         break;
                 }
 
@@ -64,15 +65,21 @@ namespace Dagboksappen
 
         public static void ShowMenu()
         {
-            Console.WriteLine("Välj ett alternativ:");
-            Console.WriteLine("1. Lägg till anteckning");
-            Console.WriteLine("2. Radera anteckning");
-            Console.WriteLine("3. Sök anteckningar på datum");
-            Console.WriteLine("4. Uppdatera anteckning");
-            Console.WriteLine("5. Lista alla anteckningar");
-            Console.WriteLine("6. Spara till fil");
-            Console.WriteLine("7. Läs från fil");
-            Console.WriteLine("8. Avsluta");
+            Design.Yellow("╔═══════════════════════╗\n");
+            Design.Yellow("║                       ║\n");
+            Design.Yellow("║       DIN DAGBOK      ║\n");
+            Design.Yellow("║                       ║\n");
+            Design.Yellow("╚═══════════════════════╝\n");
+
+            Design.Yellow(" Välj ett alternativ:\n");
+            Design.Green(" 1. Lägg till anteckning\n");
+            Design.Red(" 2. Ta bort anteckning\n");
+            Console.WriteLine(" 3. Sök anteckning på datum");
+            Console.WriteLine(" 4. Uppdatera anteckning");
+            Console.WriteLine(" 5. Lista alla anteckningar");
+            Console.WriteLine(" 6. Läs från fil");
+            Design.Green(" 7. Spara till fil\n");
+            Design.Red(" 8. Avsluta\n");
 
         }
 

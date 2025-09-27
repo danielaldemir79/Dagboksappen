@@ -13,17 +13,21 @@ namespace Dagboksappen
         {
             DateTime date;
             string input;
-            Console.WriteLine("Ange datum (ÅÅÅÅ-MM-DD):");
+            Design.Yellow(" Ange datum (ÅÅÅÅ-MM-DD): ");
 
             while (true)
             {
+
                 input = Console.ReadLine();
                 if (DateTime.TryParseExact(input, "yyyy-MM-dd", null, 
                     System.Globalization.DateTimeStyles.None,  out date))
                 {
                     return date;
                 }
-                Console.WriteLine("Ogiltigt datum, försök igen (ÅÅÅÅ-MM-DD):");
+
+                Design.Red(" Ogiltigt datum, försök igen (ÅÅÅÅ-MM-DD).");
+
+
             }
         }
         
@@ -34,7 +38,7 @@ namespace Dagboksappen
 
             while (string.IsNullOrWhiteSpace(text))
             {
-                Console.WriteLine("Texten får inte vara tom, försök igen:");
+                Design.Red(" Texten får inte vara tom, försök igen: ");
                 text = Console.ReadLine();
             }
 

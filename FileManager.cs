@@ -23,6 +23,8 @@ namespace Dagboksappen
                 if (DiaryTools.myDiary.Count == 0)
                 {
                     File.WriteAllText(jsonFile, string.Empty);
+                    Console.Clear();
+                    Design.Red("\n Inga anteckningar att spara\n\n");
                     return;
                 }
 
@@ -33,10 +35,13 @@ namespace Dagboksappen
 
                 string jsonString = JsonSerializer.Serialize(DiaryTools.myDiary);
                 File.WriteAllText(jsonFile, jsonString);
+                Console.Clear();
+                Design.Green("\n Data har sparats till fil\n\n");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Ett fel uppstod vid sparning till filen: {ex.Message}");
+                Console.Clear();
+                Design.Red($"\n Ett fel uppstod vid sparning till filen: {ex.Message}\n"); 
 
             }
         }
@@ -51,23 +56,29 @@ namespace Dagboksappen
 
                 if (!File.Exists(jsonFile))
                 {
-                    Console.WriteLine("Det fanns ingen fil att ladda ifrån");
+                    Console.Clear();
+                    Design.Blue("\n Det fanns ingen fil att ladda ifrån\n");
                     return;
                 }
 
                 if (new FileInfo(jsonFile).Length == 0)
                 {
-                    Console.WriteLine("Filen är tom, inga anteckningar att ladda");
+                    Console.Clear();
+                    Design.Blue("\n Filen är tom, inga anteckningar att ladda\n");
                     return;
                 }
-                Console.WriteLine("Data har laddats upp från sparad fil");
+                Console.Clear();
+                Design.Green("\n Data har laddats upp från sparad fil\n\n");
                 string jsonString = File.ReadAllText(jsonFile);
                 DiaryTools.myDiary = JsonSerializer.Deserialize<Dictionary<DateTime, String>>(jsonString);
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Ett fel uppstod vid inläsning av filen: {ex.Message}");
+                Console.Clear();
+
+                Design.Red($"\n Ett fel uppstod vid inläsning av filen: {ex.Message}\n");
+                
             }
         
         }
