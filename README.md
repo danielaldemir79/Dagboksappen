@@ -20,15 +20,31 @@ En enkel och robust konsolapplikation för att skriva, spara, söka, uppdatera o
 1. Klona repot och öppna lösningen i Visual Studio 2022.
 2. Bygg och kör projektet (F5 eller Ctrl+F5).
 
-## Exempel på I/O
+## Exempel på användning
+Välj ett alternativ:
 1.	Lägg till anteckning
-2.	Ta bort anteckning ...
-----------------------------   
-3.	Ditt val: 1
-4.	Ange datum (ÅÅÅÅ-MM-DD): 2025-09-28
-5.	Skriv din anteckning: Idag lärde jag mig om Dictionary i C#.
-----------------------------
-6.	Anteckningen har lagts till.
+2.	Ta bort anteckning
+3.	Sök anteckning på datum
+4.	Uppdatera anteckning
+5.	Lista alla anteckningar
+6.	Läs från fil
+7.	Spara till fil
+8.	Avsluta
+
+Ditt val: 1 Ange datum (ÅÅÅÅ-MM-DD): 2025-09-28 
+Skriv din anteckning: Lärde mig om Dictionary i C# idag! 
+Anteckningen har lagts till.
+
 
 ## Reflektion
-Jag valde att använda en `Dictionary<DateTime, DiaryEntry>` för att snabbt kunna slå upp, uppdatera och ta bort anteckningar baserat på datum. Det gör koden effektiv och enkel att förstå, men begränsar till en anteckning per datum. Jag valde JSON som filformat för att det är lättläst och enkelt att serialisera i C#. Felhantering sker med try/catch och fel loggas till en separat fil, vilket gör appen robust mot t.ex. filfel eller felaktig inmatning. Inputvalidering säkerställer att användaren inte kan ange ogiltiga datum eller tomma texter.
+
+Jag valde att använda en `Dictionary<DateTime, DiaryEntry>` som datastruktur för att snabbt kunna slå upp, uppdatera och ta bort anteckningar baserat på datum. Det ger effektivitet och enkel kod, men innebär att endast en anteckning per datum är möjlig. Filhanteringen sker i JSON-format, vilket är både läsbart och lätt att serialisera/deserialisera i C#. All filhantering och användarinput är innesluten i try/catch-block för att hantera fel på ett kontrollerat sätt, och fel loggas till en separat fil (`error.log`). Inputvalidering säkerställer att användaren inte kan ange ogiltiga datum eller tomma texter, vilket gör appen robust och användarvänlig. Gränssnittet är tydligt med färgade meddelanden för att guida användaren. 
+
+Sammantaget är lösningen enkel att underhålla och vidareutveckla.
+
+---
+
+## Mappstruktur
+/Dagboksappen /Dagboksappen/    
+
+# C#-projektfiler README.md .gitignore
