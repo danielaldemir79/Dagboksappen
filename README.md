@@ -47,6 +47,6 @@ Sammantaget är lösningen enkel att underhålla och vidareutveckla.
 ## Mappstruktur
 
 /Dagboksappen
- README.md
+  README.md
   .gitignore
-   /Dagboksappen/
+  /Dagboksappen/
