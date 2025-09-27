@@ -18,7 +18,7 @@ namespace Dagboksappen
             while (true)
             {
                 input = Console.ReadLine();
-                if (DateTime.TryParseExact(input, "yyyy-mm-dd", null, 
+                if (DateTime.TryParseExact(input, "yyyy-MM-dd", null, 
                     System.Globalization.DateTimeStyles.None,  out date))
                 {
                     return date;

@@ -40,7 +40,7 @@ namespace Dagboksappen
                         Console.WriteLine("Sök anteckningar på datum");
                         break;
                     case 4:
-                        Console.WriteLine("Uppdatera anteckningar");
+                        diaryTools.UpdateNote();
                         break;
                     case 5:
                         diaryTools.RemoveNote();
