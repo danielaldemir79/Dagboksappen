@@ -46,7 +46,8 @@ Sammantaget är lösningen enkel att underhålla och vidareutveckla.
 
 ## Mappstruktur
 
-/Dagboksappen
   /Dagboksappen/ (C#-projekt)
-  README.md
-  .gitignore
+  
+   README.md
+  
+   .gitignore
