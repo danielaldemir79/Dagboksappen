@@ -23,12 +23,12 @@ En enkel och robust konsolapplikation för att skriva, spara, söka, uppdatera o
 ## Exempel på I/O
 1.	Lägg till anteckning
 2.	Ta bort anteckning ...
-3.	
-4.	Ditt val: 1
-5.	Ange datum (ÅÅÅÅ-MM-DD): 2025-09-28
-6.	Skriv din anteckning: Idag lärde jag mig om Dictionary i C#.
-7.
-8.	Anteckningen har lagts till.
+   
+3.	Ditt val: 1
+4.	Ange datum (ÅÅÅÅ-MM-DD): 2025-09-28
+5.	Skriv din anteckning: Idag lärde jag mig om Dictionary i C#.
+
+6.	Anteckningen har lagts till.
 
 ## Reflektion
 Jag valde att använda en `Dictionary<DateTime, DiaryEntry>` för att snabbt kunna slå upp, uppdatera och ta bort anteckningar baserat på datum. Det gör koden effektiv och enkel att förstå, men begränsar till en anteckning per datum. Jag valde JSON som filformat för att det är lättläst och enkelt att serialisera i C#. Felhantering sker med try/catch och fel loggas till en separat fil, vilket gör appen robust mot t.ex. filfel eller felaktig inmatning. Inputvalidering säkerställer att användaren inte kan ange ogiltiga datum eller tomma texter.
