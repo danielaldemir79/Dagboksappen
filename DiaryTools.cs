@@ -29,6 +29,21 @@ namespace Dagboksappen
             Console.WriteLine("Anteckningen har lagts till.");
         }
 
+        
+        public void RemoveNote()
+        {
 
+            DateOnly date = DiaryEntry.EnterDate();
+           
+            if(!myDiary.ContainsKey(date))
+            {
+                Console.WriteLine("Det finns ingen anteckning för detta datum");
+                return;
+            }
+           
+            myDiary.Remove(date);
+            Console.WriteLine("Anteckningen har tagits bort.");
+
+        }
     }
 }

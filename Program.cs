@@ -43,7 +43,7 @@ namespace Dagboksappen
                         Console.WriteLine("Uppdatera anteckningar");
                         break;
                     case 5:
-                        Console.WriteLine("Ta bort Anteckningar");
+                        diaryTools.RemoveNote();
                         break;
                     case 6:
                         Console.WriteLine("Spara till fil.");
