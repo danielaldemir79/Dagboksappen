@@ -71,7 +71,7 @@ namespace Dagboksappen
                 Console.Clear();
                 Design.Green("\n Data har laddats upp från sparad fil\n\n");
                 string jsonString = File.ReadAllText(jsonFile);
-                DiaryTools.myDiary = JsonSerializer.Deserialize<Dictionary<DateTime, String>>(jsonString);
+                DiaryTools.myDiary = JsonSerializer.Deserialize<Dictionary<DateTime, DiaryEntry>>(jsonString);
 
             }
             catch (Exception ex)

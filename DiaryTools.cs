@@ -10,8 +10,8 @@ namespace Dagboksappen
     internal class DiaryTools
     {
 
-        public static Dictionary<DateTime, string> myDiary = new Dictionary<DateTime, string>();
-        public DiaryEntry diaryEntry = new DiaryEntry();
+        public static Dictionary<DateTime, DiaryEntry> myDiary = new Dictionary<DateTime, DiaryEntry>();
+        //public DiaryEntry diaryEntry = new DiaryEntry();
 
 
         public static void AddNote()
@@ -34,7 +34,8 @@ namespace Dagboksappen
 
             Design.Yellow(" Skriv din anteckning: ");
             string text = DiaryEntry.EnterText();
-            myDiary[date] = text;
+
+            myDiary[date] = new DiaryEntry { Date = date, Text = text };
             Console.Clear();
             Design.Green(" Anteckningen har lagts till.\n\n");
         }
@@ -101,7 +102,7 @@ namespace Dagboksappen
             foreach (var entry in sortedDiary)
             {
                 Design.Yellow($" {entry.Key:yyyy-MM-dd}");
-                Console.WriteLine($" {entry.Value}");
+                Console.WriteLine($" {entry.Value.Text}");
             }
         }
 
@@ -121,6 +122,7 @@ namespace Dagboksappen
             DateTime date = DiaryEntry.EnterDate();
             if (!myDiary.ContainsKey(date))
             {
+                Console.Clear();
                 Design.Red(" Det finns ingen anteckning för detta datum\n");
                 return;
             }
@@ -128,7 +130,7 @@ namespace Dagboksappen
             Design.Yellow (" Skriv din nya anteckning:");
             string text = DiaryEntry.EnterText();
 
-            myDiary[date] = text;
+            myDiary[date].Text = text;
             Console.Clear();
             Design.Green(" Anteckningen har uppdaterats.\n");
         }
@@ -145,10 +147,10 @@ namespace Dagboksappen
             Design.Green(" Vilket datum vill du söka efter?\n\n");
             DateTime date = DiaryEntry.EnterDate();
 
-            if (myDiary.TryGetValue(date, out string text))
+            if (myDiary.TryGetValue(date, out DiaryEntry entry))
             {
                 Design.Yellow($"\n {date:yyyy-MM-dd} ");
-                Console.WriteLine($": {text}");
+                Console.WriteLine($": {entry.Text}");
             }
             else
             {
