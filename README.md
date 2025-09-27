@@ -32,7 +32,9 @@ Välj ett alternativ:
 8.	Avsluta
 
 *Ditt val: 1 Ange datum (ÅÅÅÅ-MM-DD): 2025-09-28.
+
 *Skriv din anteckning: Lärde mig om Dictionary i C# idag! 
+
 *Anteckningen har lagts till.
 
 
