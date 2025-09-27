@@ -37,7 +37,7 @@ namespace Dagboksappen
                         diaryTools.ListNotes();
                         break;
                     case 3:
-                        Console.WriteLine("Sök anteckningar på datum");
+                        diaryTools.SearchDate();
                         break;
                     case 4:
                         diaryTools.UpdateNote();

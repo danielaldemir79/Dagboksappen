@@ -76,5 +76,20 @@ namespace Dagboksappen
             myDiary[date] = text;
             Console.WriteLine("Anteckningen har uppdaterats.");
         }
+
+        public void SearchDate()
+        {
+            DateTime date = DiaryEntry.EnterDate();
+
+            if (myDiary.TryGetValue(date, out string text))
+            {
+                Console.WriteLine($"{date:yyyy-MM-dd}: {text}");
+            }
+            else
+            {
+                Console.WriteLine("Det finns ingen anteckning för detta datum");
+
+            }
+        }
     }
 }
