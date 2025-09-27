@@ -31,7 +31,7 @@ Välj ett alternativ:
 7.	Spara till fil
 8.	Avsluta
 
-Ditt val: 1 Ange datum (ÅÅÅÅ-MM-DD): 2025-09-28 
+Ditt val: 1 Ange datum (ÅÅÅÅ-MM-DD): 2025-09-28. 
 Skriv din anteckning: Lärde mig om Dictionary i C# idag! 
 Anteckningen har lagts till.
 
