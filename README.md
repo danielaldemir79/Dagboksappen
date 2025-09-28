@@ -14,7 +14,7 @@ En enkel och robust konsolapplikation för att skriva, spara, söka, uppdatera o
 - Felhantering och loggning till `error.log`
 - Tydlig inputvalidering och användarvänligt gränssnitt
 ---
-- ## Nytt: Automatisk radbrytning
+- ## Automatisk radbrytning
 När du skriver in en anteckning kan du skriva en lång text på en rad. Programmet delar automatiskt upp texten i snygga rader när den visas, så att det blir lättare att läsa.
 
 ## Tips vid inmatning
