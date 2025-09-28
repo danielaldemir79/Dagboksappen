@@ -102,7 +102,7 @@ namespace Dagboksappen
             foreach (var entry in sortedDiary)
             {
                 Design.Yellow($" {entry.Key:yyyy-MM-dd}");
-                Console.WriteLine($" {entry.Value.Text}");
+                Console.WriteLine(TextFormat(entry.Value.Text, 50));
             }
         }
 
@@ -159,6 +159,30 @@ namespace Dagboksappen
             }
 
             Design.ClearScreen();
+        }
+
+        public static string TextFormat(string text, int maxLineLength)  
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return string.Empty;
+
+            var words = text.Split(' ');                                        //Denna array används för att dela upp texten i ord baserat på mellanslag.   
+            var lines = new List<string>();                                     //Denna lista används för att lagra de formaterade raderna av text.
+            string currentLine = "";                                            //Denna sträng används för att bygga upp den aktuella raden av text.
+
+            foreach (var word in words)                                         //Denna loop itererar genom varje ord i words-arrayen.
+            {
+                if ((currentLine.Length + word.Length + 1) > maxLineLength)     //Om längden på currentLine plus längden på det aktuella ordet plus ett mellanslag överstiger maxLineLength
+                {
+                    lines.Add(" " + currentLine.TrimEnd());                     //Läggs currentLine till i lines-listan efter att eventuella avslutande mellanslag har tagits bort.
+                    currentLine = "";                                           //currentLine återställs till en tom sträng för att börja bygga en ny rad.
+                }
+                currentLine += word + " ";                                      //Det aktuella ordet läggs till i currentLine tillsammans med ett mellanslag.
+            }
+            if (currentLine.Length > 0)                                         //Efter loopen, om currentLine inte är tom
+                lines.Add(" " + currentLine.TrimEnd() + "\n");                  //Läggs den sista raden till i lines-listan efter att eventuella avslutande mellanslag har tagits bort.
+
+            return string.Join(Environment.NewLine, lines);                     //Slutligen returneras en enda sträng som består av alla rader i lines-listan, separerade med radbrytningar.
         }
     }
 }
