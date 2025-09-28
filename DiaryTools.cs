@@ -18,14 +18,14 @@ namespace Dagboksappen
         {
             Console.Clear();
             Design.Green("╔══════════════════════════════╗\n");
-            Design.Green("║                              ║\n");
+            Design.Green("║                              ║\n"); 
             Design.Green("║     LÄGG TILL ANTECKNING     ║\n");
             Design.Green("║                              ║\n");
             Design.Green("╚══════════════════════════════╝\n\n");
 
             DateTime date = DiaryEntry.EnterDate();
 
-            if (myDiary.ContainsKey(date))
+            if (myDiary.ContainsKey(date))                                                  //Kontrollerar om det angivna datumet redan finns som en nyckel i myDiary-dictionaryn. Avbryter med felmeddelande om så är fallet.
             {
                 Console.Clear();
                 Design.Red("\n Det finns redan en anteckning för detta datum\n\n");
@@ -35,7 +35,7 @@ namespace Dagboksappen
             Design.Yellow(" Skriv din anteckning: ");
             string text = DiaryEntry.EnterText();
 
-            myDiary[date] = new DiaryEntry { Date = date, Text = text };
+            myDiary[date] = new DiaryEntry { Date = date, Text = text };                    //Lägger till en ny anteckning i myDiary-dictionaryn med det angivna datumet som nyckel och en ny instans av DiaryEntry som värde.
             Console.Clear();
             Design.Green(" Anteckningen har lagts till.\n\n");
         }
@@ -57,14 +57,14 @@ namespace Dagboksappen
             DateTime date = DiaryEntry.EnterDate();
            
 
-            if (!myDiary.ContainsKey(date))
+            if (!myDiary.ContainsKey(date))                                                 //Kontrollerar om det angivna datumet inte finns som en nyckel i myDiary-dictionaryn. Avbryter med felmeddelande om så är fallet.
             {
                 Console.Clear();
                 Design.Red("\n Det finns ingen anteckning för detta datum\n\n");
                 return;
             }
            
-            myDiary.Remove(date);
+            myDiary.Remove(date);                                                           //Tar bort anteckningen som motsvarar det angivna datumet från myDiary-dictionaryn.
 
             Console.Clear();
             Design.Green("Anteckningen har tagits bort.\n");
@@ -89,17 +89,17 @@ namespace Dagboksappen
 
         public static void ViewAllNotes()
         {
-            if (myDiary.Count == 0)
+            if (myDiary.Count == 0)                                             //Kontrollerar om myDiary-dictionaryn är tom och skriver ut ett meddelande om så är fallet.
             {
                 Design.Red(" Det finns inga anteckningar att visa.\n");
                 return;
             }
-            var sortedDiary = myDiary.OrderBy(entry => entry.Key);
+            var sortedDiary = myDiary.OrderBy(entry => entry.Key);             //Sorterar myDiary-dictionaryn efter nycklarna (datum) i stigande ordning och lagrar resultatet i sortedDiary.
 
             Design.Green(" Alla anteckningar\n");
             Design.Yellow(" Sorterad efter datum.\n\n");
 
-            foreach (var entry in sortedDiary)
+            foreach (var entry in sortedDiary)                                 //Loopar genom varje post i sortedDiary och skriver ut datumet och den formaterade texten för varje anteckning.
             {
                 Design.Yellow($" {entry.Key:yyyy-MM-dd}");
                 Console.WriteLine(TextFormat(entry.Value.Text, 50));
@@ -119,8 +119,8 @@ namespace Dagboksappen
             ViewAllNotes();
             
             Design.Green("\n\n Vilken anteckning vill du uppdatera?\n");
-            DateTime date = DiaryEntry.EnterDate();
-            if (!myDiary.ContainsKey(date))
+            DateTime date = DiaryEntry.EnterDate();                                     //Anropar metoden EnterDate från DiaryEntry-klassen för att få ett datum från användaren.
+            if (!myDiary.ContainsKey(date))                                             //Kontrollerar om det angivna datumet inte finns som en nyckel i myDiary-dictionaryn. Avbryter med felmeddelande om så är fallet.
             {
                 Console.Clear();
                 Design.Red(" Det finns ingen anteckning för detta datum\n");
@@ -130,7 +130,7 @@ namespace Dagboksappen
             Design.Yellow (" Skriv din nya anteckning:");
             string text = DiaryEntry.EnterText();
 
-            myDiary[date].Text = text;
+            myDiary[date].Text = text;                                                  //Uppdaterar texten för den anteckning som motsvarar det angivna datumet med den nya texten som användaren har angett.
             Console.Clear();
             Design.Green(" Anteckningen har uppdaterats.\n");
         }
@@ -147,10 +147,10 @@ namespace Dagboksappen
             Design.Green(" Vilket datum vill du söka efter?\n\n");
             DateTime date = DiaryEntry.EnterDate();
 
-            if (myDiary.TryGetValue(date, out DiaryEntry entry))
+            if (myDiary.TryGetValue(date, out DiaryEntry entry))                    //Försöker hämta värdet (anteckningen) från myDiary-dictionaryn baserat på det angivna datumet.
             {
-                Design.Yellow($"\n {date:yyyy-MM-dd} ");
-                Console.WriteLine($": {entry.Text}");
+                Design.Yellow($"\n {date:yyyy-MM-dd} ");                            //Om anteckningen finns, skrivs datumet ut i formatet ÅÅÅÅ-MM-DD.
+                Console.WriteLine($": {entry.Text}");                               //Och anteckningens text skrivs ut.
             }
             else
             {
