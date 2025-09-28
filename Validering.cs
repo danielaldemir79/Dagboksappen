@@ -14,7 +14,7 @@ namespace Dagboksappen
 
             while (!int.TryParse(Console.ReadLine(), out helTal))
             {
-               Design.Red(" Ogiltigt val, försök igen:\n");
+               Design.Red(" Ogiltigt val, försök igen: ");
             }
             Console.WriteLine();
             return helTal;
