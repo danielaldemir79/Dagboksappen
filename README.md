@@ -13,6 +13,13 @@ En enkel och robust konsolapplikation för att skriva, spara, söka, uppdatera o
 - Spara och ladda anteckningar till/från fil (JSON-format)
 - Felhantering och loggning till `error.log`
 - Tydlig inputvalidering och användarvänligt gränssnitt
+---
+- ## Nytt: Automatisk radbrytning
+När du skriver in en anteckning kan du skriva en lång text på en rad. Programmet delar automatiskt upp texten i snygga rader när den visas, så att det blir lättare att läsa.
+
+## Tips vid inmatning
+- Skriv din anteckning och tryck Enter när du är klar.
+- Långa anteckningar radbryts automatiskt vid visning.
 
 ---
 
