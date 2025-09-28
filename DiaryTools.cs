@@ -149,7 +149,7 @@ namespace Dagboksappen
 
             if (myDiary.TryGetValue(date, out DiaryEntry entry))                    //Försöker hämta värdet (anteckningen) från myDiary-dictionaryn baserat på det angivna datumet.
             {
-                Design.Yellow($"\n {date:yyyy-MM-dd} ");                            //Om anteckningen finns, skrivs datumet ut i formatet ÅÅÅÅ-MM-DD.
+                Design.Yellow($"\n {date:yyyy-MM-dd} ");                            //Om anteckningen finns, skrivs datumet ut i formatet ÅÅÅÅ-MM-DD.  
                 Console.WriteLine($": {entry.Text}");                               //Och anteckningens text skrivs ut.
             }
             else
@@ -169,7 +169,7 @@ namespace Dagboksappen
             var words = text.Split(' ');                                        //Denna array används för att dela upp texten i ord baserat på mellanslag.   
             var lines = new List<string>();                                     //Denna lista används för att lagra de formaterade raderna av text.
             string currentLine = "";                                            //Denna sträng används för att bygga upp den aktuella raden av text.
-
+            Console.WriteLine();
             foreach (var word in words)                                         //Denna loop itererar genom varje ord i words-arrayen.
             {
                 if ((currentLine.Length + word.Length + 1) > maxLineLength)     //Om längden på currentLine plus längden på det aktuella ordet plus ett mellanslag överstiger maxLineLength
