@@ -150,7 +150,7 @@ namespace Dagboksappen
             if (myDiary.TryGetValue(date, out DiaryEntry entry))                    //Försöker hämta värdet (anteckningen) från myDiary-dictionaryn baserat på det angivna datumet.
             {
                 Design.Yellow($"\n {date:yyyy-MM-dd} ");                            //Om anteckningen finns, skrivs datumet ut i formatet ÅÅÅÅ-MM-DD.  
-                Console.WriteLine($": {entry.Text}");                               //Och anteckningens text skrivs ut.
+                Console.WriteLine(TextFormat(entry.Text, 50));                      //Den formaterade texten för anteckningen skrivs också ut med en maxlängd på 50 tecken per rad.
             }
             else
             {
